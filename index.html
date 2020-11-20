@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Calculator</title>
+    <style>
+        body {
+            background-image: url(1.jpg);
+            background-size: cover;
+
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        Half this number...
+        <input type="number" id="half-input">
+    </label>
+    <button id="half-button">Calculate</button>
+    <br><br>
+    <label>
+        Give me your name and I'll give you a fortune...
+        <input id="fortune-input">
+    </label>
+    <button id="fortune-button">Get Fortune</button>
+    <br><br>
+    <div id="fortune-output"></div>
+
+
+    <script>
+
+        function halfNumber(num) {
+            alert("Half of " + num + " is ." + num / 2);
+        }
+
+
+        function fortune(name) {
+            document.getElementById("fortune-output").innerHTML = name + " cookie style";
+        }
+
+
+        function restyle() {
+            document.getElementById("fortune-output").style.fontSize = Math.random() * 30 + "px";
+            var arr = ['red', 'green', 'blue'];
+            var color = arr[Math.floor(Math.random() * arr.length)];
+            document.getElementById("fortune-output").style.color = color;
+            document.getElementById("fortune-output").style.fontWeight = 600;
+        }
+
+
+        document.getElementById("half-button").addEventListener("click", function () {
+            var num = document.getElementById("half-input").value;
+            halfNumber(num);
+        });
+
+
+        document.getElementById("fortune-button").addEventListener("click", function () {
+            var name = document.getElementById("fortune-input").value;
+            fortune(name);
+            restyle();
+        });
+    </script>
+</body>
+</html>
